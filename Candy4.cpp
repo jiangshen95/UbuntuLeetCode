@@ -10,6 +10,11 @@ public:
         int up=0;
         int down=0;
         int old_slope=0;
+        /*
+         * 关于加一的问题。一个波峰对应的应该是 count(up)+count(down)+(max(up, down)+1)，
+         * 而一个波峰的最后一个节点会被服用，算到下次里面，所以要减去1
+         * 而最后一个波峰和相等的（平的情况），最后一个节点不会被复用，所以要加一
+         */
         for(int i=1;i<ratings.size();i++){
             int new_slope = (ratings[i]>ratings[i-1])?1:(ratings[i]<ratings[i-1]?-1:0);
             

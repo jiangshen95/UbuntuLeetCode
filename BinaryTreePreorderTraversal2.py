@@ -17,11 +17,11 @@ class Solution:
         return preorder
 
 if __name__=='__main__':
-    a = TreeNode(1);
-    b = TreeNode(2);
-    c = TreeNode(3);
-    d = TreeNode(4);
-    e = TreeNode(5);
+    a = TreeNode(1)
+    b = TreeNode(2)
+    c = TreeNode(3)
+    d = TreeNode(4)
+    e = TreeNode(5)
     
     a.left = b;
     a.right = c;

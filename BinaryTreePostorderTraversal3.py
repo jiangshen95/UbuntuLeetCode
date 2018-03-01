@@ -5,24 +5,27 @@ class TreeNode:
         self.right = None
         
 class Solution:
-    def preorderTraversal(self, root):
+    def postorderTraversal(self, root):
         """
         :type root: TreeNode
         :rtype: List[int]
         """
-        preorder = []
-        if root==None:
-            return preorder
+        postorder = []
+        
+        if not root:
+            return postorder
+        
         stack = [root]
+        
         while stack:
             cur = stack.pop()
-            preorder.append(cur.val)
-            if cur.right:
-                stack.append(cur.right)
+            postorder = [cur.val] + postorder
             if cur.left:
                 stack.append(cur.left)
-        return preorder
-
+            if cur.right:
+                stack.append(cur.right)
+        return postorder
+        
 if __name__=='__main__':
     a = TreeNode(1)
     b = TreeNode(2)
@@ -36,4 +39,4 @@ if __name__=='__main__':
     d.right = e;
     
     solution = Solution()
-    print(solution.preorderTraversal(a))
+    print(solution.postorderTraversal(a))

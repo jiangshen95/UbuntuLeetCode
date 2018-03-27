@@ -18,6 +18,8 @@ public:
         
         for(int i=0;i<s.length()-9;i++){
             string w = s.substr(i, 10);
+            // 或者写成如下：
+            // if(map[w]++ == 1) result.push_back(w);
             if(map.find(w) == map.end()){
                 map[w] = 1;
             }else{

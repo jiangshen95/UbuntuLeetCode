@@ -10,13 +10,15 @@ class Solution:
                 return 0
             if value in dp:
                 return dp[value]
-            cur = 2147483647
+            #cur = 2147483647
+            cur = max_num
+            print(max_num)
             for coin in coins:
                 if value >= coin:
                     temp = coinChange(value - coin)
                     if temp >= 0:
                         cur = min(cur, temp + 1)
-            if cur != 2147483647:
+            if cur != max_num:
                 dp[value] = cur
             else:
                 dp[value] = -1
@@ -25,6 +27,7 @@ class Solution:
         if amount == 0:
             return 0
         dp = {0: 0}
+        max_num = amount + 1
         return coinChange(amount)
 
 
